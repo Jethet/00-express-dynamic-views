@@ -4,9 +4,7 @@ const app = express();
 const port = 3000
 
 
-app.listen(port, () => {
-    console.log('Server running');
-});
+
 
 // MIDDLEWARE
 app.use(express.static(__dirname + '/public'));
@@ -14,3 +12,19 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 
 app.set('view engine', 'hbs');
+
+
+// ROUTES
+app.get('/', (req, res, next) => {
+    res.render('index');
+});
+
+app.get('/student', (req, res, next) => {
+    res.render('student');
+});
+
+
+
+app.listen(port, () => {
+    console.log('Server running');
+});
