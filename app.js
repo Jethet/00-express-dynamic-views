@@ -20,7 +20,12 @@ app.get('/', (req, res, next) => {
 });
 
 app.get('/student', (req, res, next) => {
-    res.render('student');
+
+    const data = {      // This can be used as parameter in the render function
+        name: 'Helen',
+        bootcamp: 'WebDev BCN'
+    };
+    res.render('student', data);
 });
 
 
