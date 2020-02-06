@@ -1,14 +1,129 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>My first view</title>
   <link rel="stylesheet" href="stylesheets/style.css">
 </head>
+
 <body>
   <h1>Ironhackers Be Like</h1>
   <img src="https://media.giphy.com/media/l0MYEqEzwMWFCg8rm/giphy.gif">
 
-  
+  <h1> Hello {{ name }} </h1>
+  <p>Welcome to {{{ bootcamp }}} </p>
+
+<h3>Nested values</h3>
+<h3>Street {{ addressObj.street }}</h3>
+<h3>Number {{ addressObj.number }}</h3>
+
+
+{{#with addressObj}}
+{(street)} - {(number)}
+{{/with}}
+
+<h3>@key</h3>
+{{#each info}}
+<li>{{@key}} : {{this}}</li>
+{{/each}}
+
+  <h3>@index</h3>
+
+  <ul>
+    {{#each cities}}
+    <li>{{@index}}: {{ this }}</li>
+    {{/each}}
+  </ul>
+
+<ul>
+    {{#each cities}}
+
+    {{#if @first}}
+    <li><b>First item {{ this }}</b></li>
+
+    {{ else if @last}}
+    <li><b>Last item {{ this}}</b></li>
+
+    {{else}}
+    <li>{{this}}</li>
+    {{/if}}
+
+    {{/each}}
+  </ul>
+
+
+
+
+
+  <h3>#each</h3>
+
+  <ul>
+    {{#each countries}}
+    <li>{{ this }}</li>
+    {{else}}
+    <p>There is no countries yet!</p>
+    {{/each}}
+  </ul>
+
+  <br>
+  <hr>
+
+
+
+  <h3>#each</h3>
+
+  <ul>
+    {{#each cities}}
+    <li>{{ this }}</li>
+    {{/each}}
+  </ul>
+
+  <br>
+  <hr>
+
+
+
+
+
+  <h3>#unless - renders for falsy values</h3>
+  {{#unless address}}
+  WARNING: We can't find the address
+  {{/unless}}
+
+  <hr>
+  <br>
+
+
+
+  <h3>#else if</h3> <!-- no use -->
+
+  {{#if address}}
+  <h2> {{ address }}</h2>
+
+  {{else}}
+  <h2> There is no address</h2>
+  {{/if}}
+
+  <hr>
+
+
+
+
+
+
+
+  <h3>#if</h3> <!-- no use -->
+
+  {{#if message}}
+  <h2> message - This won't be displayed </h2>
+  {{/if}}
+
+  {{#if name}}
+  <h2> name - This will be displayed </h2>
+  {{/if}}
+
+
 </body>
-</html>	
+
+</html>
